@@ -38,7 +38,6 @@ DEFAULT_PAGINATION = False
 RELATIVE_URLS = False
 
 STATIC_PATHS = [
-    'static',
     'images',
     'extra/favicon-16x16.png',
     'extra/favicon-32x32.png',
@@ -94,4 +93,8 @@ SITEMAP = {
 
 MARKDOWN = {
     'extensions': ['markdown.extensions.smarty'],
+}
+
+IMAGE_PROCESS = {
+    "article-image": ["scale_in 300 300 True"],
 }
