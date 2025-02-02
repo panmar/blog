@@ -37,7 +37,24 @@ DEFAULT_PAGINATION = False
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
 
-STATIC_PATHS = ['static', 'images']
+STATIC_PATHS = [
+    'static',
+    'images',
+    'extra/favicon-16x16.png',
+    'extra/favicon-32x32.png',
+    'extra/apple-touch-icon.png',
+    'extra/site.webmanifest',
+    'extra/android-chrome-192x192.png',
+]
+
+EXTRA_PATH_METADATA = {
+    'extra/favicon-16x16.png': {'path': 'favicon-16x16.png'},
+    'extra/favicon-32x32.png': {'path': 'favicon-32x32.png'},
+    'extra/apple-touch-icon.png': {'path': 'apple-touch-icon.png'},
+    'extra/site.webmanifest': {'path': 'site.webmanifest'},
+    'extra/android-chrome-192x192.png': {'path': 'android-chrome-192x192.png'},
+}
+
 THEME = 'theme'
 OUTPUT_PATH = "docs"
 COMMIT_ID = subprocess.check_output(['git', 'rev-parse', '--short=7', 'HEAD'], text=True).strip()
