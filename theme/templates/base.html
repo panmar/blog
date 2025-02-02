@@ -218,14 +218,14 @@
         <a href="/">{{ SITENAME }}</a>
     </div>
     <nav>
-        <a {% if "index"==active_page %} class="active" {% endif %} href="/">Posts</a>
+        <a {% if "index"==active_page %} class="active" {% endif %} href="{{ SITEURL }}">Posts</a>
         |
-        <a {% if "tags"==active_page %} class="active" {% endif %} href="/tags.html">Tags</a>
+        <a {% if "tags"==active_page %} class="active" {% endif %} href="{{ SITEURL }}/tags.html">Tags</a>
         |
-        <a {% if "contact"==active_page %} class="active" {% endif %} href="/pages/contact.html">Contact</a>
+        <a {% if "contact"==active_page %} class="active" {% endif %} href="{{ SITEURL }}/pages/contact.html">Contact</a>
         {% if FEED_ALL_ATOM %}
         |
-        <a href="/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}">Atom</a>
+        <a href="{{ SITEURL }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}">Atom</a>
         {% endif %}
     </nav>
     <div id="content">

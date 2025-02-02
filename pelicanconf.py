@@ -3,7 +3,7 @@ import subprocess
 
 AUTHOR = 'Marcin Panasiuk'
 SITENAME = 'Marcin Panasiuk - blog'
-SITEURL = "https://www.marcinpanasiuk.com/blog/"
+SITEURL = "https://www.marcinpanasiuk.com/blog"
 
 PATH = "content"
 
@@ -35,7 +35,7 @@ SOCIAL = (
 DEFAULT_PAGINATION = False
 
 # Uncomment following line if you want document-relative URLs when developing
-# RELATIVE_URLS = True
+RELATIVE_URLS = False
 
 STATIC_PATHS = [
     'static',
