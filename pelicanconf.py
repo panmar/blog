@@ -3,7 +3,7 @@ import subprocess
 
 AUTHOR = 'Marcin Panasiuk'
 SITENAME = 'Marcin Panasiuk - blog'
-SITEURL = ""
+SITEURL = "https://www.marcinpanasiuk.com/blog/"
 
 PATH = "content"
 

@@ -5,36 +5,36 @@ xmlns:xhtml="http://www.w3.org/1999/xhtml"
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>/</loc>
-<lastmod>2025-02-02T12:55:44-00:00</lastmod>
+<loc>https://www.marcinpanasiuk.com/blog/</loc>
+<lastmod>2025-02-02T13:02:22-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/first-post.html</loc>
+<loc>https://www.marcinpanasiuk.com/blog/first-post.html</loc>
 <lastmod>2021-09-13T11:43:00+02:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/pages/contact.html</loc>
-<lastmod>2025-02-02T12:55:44-00:00</lastmod>
+<loc>https://www.marcinpanasiuk.com/blog/pages/contact.html</loc>
+<lastmod>2025-02-02T13:02:22-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tag/meta.html</loc>
-<lastmod>2025-02-02T12:55:44-00:00</lastmod>
+<loc>https://www.marcinpanasiuk.com/blog/tag/meta.html</loc>
+<lastmod>2025-02-02T13:02:22-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>/tags.html</loc>
-<lastmod>2025-02-02T12:55:44-00:00</lastmod>
+<loc>https://www.marcinpanasiuk.com/blog/tags.html</loc>
+<lastmod>2025-02-02T13:02:22-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
