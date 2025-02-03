@@ -5,7 +5,7 @@ Crazy Little Thing Called Float
 :tags: ieee-754
 :status: published
 
-.. image:: /images/ladder.jpeg
+.. image:: images/ladder.jpeg
     :alt: ladder with missing steps
     :class: image-process-article-image
 
