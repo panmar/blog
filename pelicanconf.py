@@ -75,7 +75,7 @@ CATEGORY_SAVE_AS = ''
 ARCHIVES_SAVE_AS = ''
 
 PLUGIN_PATHS = ['./pelican-plugins']
-PLUGINS = ['sitemap']
+PLUGINS = ['sitemap', 'render_math', 'image_process']
 
 SITEMAP = {
     'format': 'xml',
@@ -96,5 +96,5 @@ MARKDOWN = {
 }
 
 IMAGE_PROCESS = {
-    "article-image": ["scale_in 300 300 True"],
+    "article-image": ["scale_in 480 380 True"],
 }
