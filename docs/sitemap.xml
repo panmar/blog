@@ -6,8 +6,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://www.marcinpanasiuk.com/blog/</loc>
-<lastmod>2025-02-02T14:13:03-00:00</lastmod>
+<lastmod>2025-02-02T16:43:12-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://www.marcinpanasiuk.com/blog/crazy-little-thing-called-float.html</loc>
+<lastmod>2021-11-20T11:28:00+01:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -20,21 +27,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://www.marcinpanasiuk.com/blog/pages/contact.html</loc>
-<lastmod>2025-02-02T14:13:03-00:00</lastmod>
+<lastmod>2025-02-02T16:43:12-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
+<loc>https://www.marcinpanasiuk.com/blog/tag/ieee-754.html</loc>
+<lastmod>2025-02-02T16:43:12-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>https://www.marcinpanasiuk.com/blog/tag/meta.html</loc>
-<lastmod>2025-02-02T14:13:03-00:00</lastmod>
+<lastmod>2025-02-02T16:43:12-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://www.marcinpanasiuk.com/blog/tags.html</loc>
-<lastmod>2025-02-02T14:13:03-00:00</lastmod>
+<lastmod>2025-02-02T16:43:12-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

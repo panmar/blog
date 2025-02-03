@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Marcin Panasiuk - blog - meta</title><link href="https://www.marcinpanasiuk.com/blog/" rel="alternate"></link><link href="https://www.marcinpanasiuk.com/blog/feeds/meta.atom.xml" rel="self"></link><id>https://www.marcinpanasiuk.com/blog/</id><updated>2021-09-13T11:43:00+02:00</updated><entry><title>First post</title><link href="https://www.marcinpanasiuk.com/blog/first-post.html" rel="alternate"></link><published>2021-09-13T11:43:00+02:00</published><updated>2021-09-13T11:43:00+02:00</updated><author><name>Marcin Panasiuk</name></author><id>tag:www.marcinpanasiuk.com,2021-09-13:/blog/first-post.html</id><summary type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;fn&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Marcin Panasiuk - blog - meta</title><link href="https://www.marcinpanasiuk.com/blog/" rel="alternate"/><link href="https://www.marcinpanasiuk.com/blog/feeds/meta.atom.xml" rel="self"/><id>https://www.marcinpanasiuk.com/blog/</id><updated>2021-09-13T11:43:00+02:00</updated><entry><title>First post</title><link href="https://www.marcinpanasiuk.com/blog/first-post.html" rel="alternate"/><published>2021-09-13T11:43:00+02:00</published><updated>2021-09-13T11:43:00+02:00</updated><author><name>Marcin Panasiuk</name></author><id>tag:www.marcinpanasiuk.com,2021-09-13:/blog/first-post.html</id><summary type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;fn&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="fm"&gt;println!&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Hello world!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -7,7 +7,7 @@
 (I encourage you to visit it if you haven't already) I have finally decided to start my
 blogging adventure. To do so I am using &lt;a class="reference external" href="https://github.com/getpelican/pelican"&gt;Pelican&lt;/a&gt;.
 So far it's working very nicely - I am …&lt;/p&gt;</summary><content type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;fn&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="fm"&gt;println!&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Hello world!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="fm"&gt;println!&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"Hello world!"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This is a first post. Inspired by a &lt;a class="reference external" href="https://stasiak.at"&gt;Jakub Stasiak's blog&lt;/a&gt;
@@ -16,4 +16,4 @@ blogging adventure. To do so I am using &lt;a class="reference external" href="h
 So far it's working very nicely - I am glad I resisted the urge to roll my own solution.
 I am using modified &lt;a class="reference external" href="https://github.com/panmar/panmar.github.io"&gt;Jakub's theme&lt;/a&gt;, which
 I've been tweaking during night hours - hence a dark theme.&lt;/p&gt;
-</content><category term="misc"></category><category term="meta"></category></entry></feed>
+</content><category term="misc"/><category term="meta"/></entry></feed>
