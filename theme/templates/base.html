@@ -10,13 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;700&display=swap"
         rel="stylesheet">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="manifest" href="site.webmanifest">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
 
-    <link rel="stylesheet" href="theme/main.css" type="text/css">
-    <link rel="stylesheet" href="theme/highlight.css" type="text/css">
+    <link rel="stylesheet" href="/theme/main.css" type="text/css">
+    <link rel="stylesheet" href="/theme/highlight.css" type="text/css">
 
     {% if FEED_ALL_ATOM %}
     <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate"
@@ -30,17 +30,17 @@
 
 <body>
     <div id="logo">
-        <a href="{{ SITEURL }}">{{ SITENAME }}</a>
+        <a href="/">{{ SITENAME }}</a>
     </div>
     <nav>
-        <a {% if "index"==active_page %} class="active" {% endif %} href="{{ SITEURL }}">Posts</a>
+        <a {% if "index"==active_page %} class="active" {% endif %} href="/">Posts</a>
         |
-        <a {% if "tags"==active_page %} class="active" {% endif %} href="tags.html">Tags</a>
+        <a {% if "tags"==active_page %} class="active" {% endif %} href="/tags.html">Tags</a>
         |
-        <a {% if "contact"==active_page %} class="active" {% endif %} href="pages/contact.html">Contact</a>
+        <a {% if "contact"==active_page %} class="active" {% endif %} href="/pages/contact.html">Contact</a>
         {% if FEED_ALL_ATOM %}
         |
-        <a href="{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}">Atom</a>
+        <a href="/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}">Atom</a>
         {% endif %}
     </nav>
     <div id="content">

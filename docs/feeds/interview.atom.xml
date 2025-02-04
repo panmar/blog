@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Marcin Panasiuk - blog - interview</title><link href="https://blog.marcinpanasiuk.com/" rel="alternate"/><link href="https://blog.marcinpanasiuk.com/feeds/interview.atom.xml" rel="self"/><id>https://blog.marcinpanasiuk.com/</id><updated>2022-01-13T17:04:00+01:00</updated><entry><title>Interview with the Programmer</title><link href="https://blog.marcinpanasiuk.com/interview-with-the-programmer.html" rel="alternate"/><published>2022-01-13T17:04:00+01:00</published><updated>2022-01-13T17:04:00+01:00</updated><author><name>Marcin Panasiuk</name></author><id>tag:blog.marcinpanasiuk.com,2022-01-13:/interview-with-the-programmer.html</id><summary type="html">&lt;img alt="wooden desk with typewriter" class="image-process-article-image" src="images/interview.jpeg" /&gt;
+&lt;p&gt;Hiring a good programmer is challenging. While there are many interview methods to identify the best candidates, here are a few of my favourites:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;cite&gt;&amp;quot;Tell me about your project and I'll tell you who you are...&amp;quot;&lt;/cite&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In &lt;a class="reference external" href="https://www.youtube.com/watch?v=cfyWvJdsDRI"&gt;this simulated interview&lt;/a&gt;, Shawn McGrath discusses his custom antialiaser implementation with Casey Muratori …&lt;/p&gt;&lt;/blockquote&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;img alt="wooden desk with typewriter" class="image-process-article-image" src="images/derivatives/article-image/interview.jpeg"/&gt;
+&lt;p&gt;Hiring a good programmer is challenging. While there are many interview methods to identify the best candidates, here are a few of my favourites:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;cite&gt;"Tell me about your project and I'll tell you who you are..."&lt;/cite&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In &lt;a class="reference external" href="https://www.youtube.com/watch?v=cfyWvJdsDRI"&gt;this simulated interview&lt;/a&gt;, Shawn McGrath discusses his custom antialiaser implementation with Casey Muratori. Casey assumes the role of a curious engineer, asking questions about Shawn's solution. This method unveils the depth of the candidate's thinking when confronted with complex problems. Unlike basic algorithmic challenges, this approach provides insight how programmer handles real-world projects.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;cite&gt;"Found this bug. What could have caused it?"&lt;/cite&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hussein Nasser discusses &lt;a class="reference external" href="https://www.youtube.com/watch?v=bDIB2eIzIC8"&gt;his favorite interview approach&lt;/a&gt;, which starts with outlining a general system (e.g., database, webserver, reverse proxy, load balancer, frontend app) and reporting a specific issue (e.g., UI freezing for about a minute after clicking a button). He then asks a candidate how he would debug the problem. This open-ended question encourages interviewee to discuss the parts of the system he is most interested in, naturally revealing his strengths and passions. Hussein notes that he has never received the same answer twice.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;cite&gt;"Here's the source code. Add some feature..."&lt;/cite&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In &lt;a class="reference external" href="https://quuxplusone.github.io/blog/2022/01/06/memcached-interview/"&gt;this interview&lt;/a&gt;, the programmer is asked to add a support for the atomic &lt;strong&gt;mult&lt;/strong&gt; command to the &lt;a class="reference external" href="https://memcached.org"&gt;Memcached&lt;/a&gt; library. This hands-on assignment is designed to identify pragmatic programmers who are comfortable working with unfamiliar source code and ready to tackle the task with a practical, sleeves-rolled-up approach.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content><category term="misc"/><category term="interview"/></entry></feed>
