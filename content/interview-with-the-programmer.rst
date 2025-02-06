@@ -5,7 +5,7 @@ Interview with the Programmer
 :tags: interview
 :status: published
 
-.. image:: images/interview.jpeg
+.. image:: images/interview.jpg
     :alt: wooden desk with typewriter
     :class: image-process-article-image
 
