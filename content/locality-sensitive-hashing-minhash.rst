@@ -7,7 +7,7 @@ Locality-sensitive hashing: MinHash
     :alt: two cats: one normal, one mechanical
     :class: image-process-article-image
 
-Imagine you’re building a meme recommendation system. Users upload memes, and you are tasked to find all similar ones quickly. A meme is described by a set of features e.g. ["*sun*", "*dog*", "*car*"]. Memes are similar if they share most features:
+Imagine you’re building a meme recommendation system. Users upload memes, and your task is to find all similar ones quickly. A meme is described by a set of features e.g. ["*sun*", "*dog*", "*car*"]. Memes are considered similar if they share most of their features:
 
 .. code-block:: Python
 
@@ -18,9 +18,9 @@ Imagine you’re building a meme recommendation system. Users upload memes, and 
 
 How would you find all similar memes?
 
-Well, you can directly compare memes with one another. For **N** memes this leads to O(**N**\ :sup:`2`) comparisons. We can do better!
+A straightforward approach would be to directly compare every meme with every other meme. However, For **N** memes this results in O(**N**\ :sup:`2`) comparisons - clearly not efficient. We can do better!
 
-Lets think about it. If two memes share many features and we picked a random feature from them it has high chance to be present in both. If we repeat this process many times similar memes will match more often then different ones:
+Lets think about it. If two memes share most of thier features, then picking a random feature from the combined list of thier features has high chance to be present in both. If we repeat this process multiple times, similar memes will match more frequently then different ones:
 
 .. code-block:: Python
 
@@ -34,7 +34,7 @@ Lets think about it. If two memes share many features and we picked a random fea
         mems.remove(similar_mems)
         all_features.remove(f)
 
-Notice that when we actually pick a random feature, remove it from **all_features** and pick a next one, we are actually interested in some random ordering of the features. So instead of this cumbersome procedure we could just randomly *shuffle* **all_features** and process them in order:
+Notice that when we actually pick a random feature, remove it from **all_features**, and pick another one, what we’re really doing is generating a random ordering of the features. Instead of this cumbersome process, we could simply *shuffle* **all_features** and process them in order:
 
 .. code-block:: Python
 
@@ -49,7 +49,7 @@ Notice that when we actually pick a random feature, remove it from **all_feature
         mark_similar_mems(similar_mems)
         mems.remove(similar_mems)
 
-Lets simplify it even more. Instead of cumbersome shuffling we could use hash function to generate ordering. In fact, we are only interested in the smallest hash of mem's feature list. A minimum hash:
+But we can simplify it even further! Rather than shuffling, we can use a hash function to generate a consistent ordering. In fact, we only care about the smallest hash value for each meme’s feature list. A minimum hash:
 
 .. code-block:: Python
 
@@ -62,6 +62,6 @@ Lets simplify it even more. Instead of cumbersome shuffling we could use hash fu
 
     similar_groups = group_by_hash(mems, min_hashes)
 
-If we repeat this procedure for different hashes, the most similar mems will land more frequently in the same groups.
+If we repeat this process using different hash functions, the most similar memes will end up in the same groups more frequently.
 
-Described algorithm is called `MinHash <https://en.wikipedia.org/wiki/MinHash>`_ and is usefull for grouping similar sets of items.
+The algorithm I’ve just described is called `MinHash <https://en.wikipedia.org/wiki/MinHash>`_, and it’s a powerful technique for grouping similar sets of items efficiently.

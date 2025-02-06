@@ -10,7 +10,7 @@
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;It will run forever.&lt;/p&gt;
-&lt;p&gt;It is pretty common knowledge that the best way to get broke is to use &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format"&gt;floats&lt;/a&gt; for storing money. Indeed, not all rational …&lt;/p&gt;</summary><content type="html">&lt;img alt="ladder with missing steps" class="image-process-article-image" src="images/derivatives/article-image/ladder.jpg"/&gt;
+&lt;p&gt;It's pretty common knowledge that the best way to go broke is to use &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format"&gt;floats&lt;/a&gt; for storing money. Indeed, not all rational numbers …&lt;/p&gt;</summary><content type="html">&lt;img alt="ladder with missing steps" class="image-process-article-image" src="images/derivatives/article-image/ladder.jpg"/&gt;
 &lt;p&gt;What's wrong with this C++ code?&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kt"&gt;float&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;16777217.f&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -21,7 +21,7 @@
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;It will run forever.&lt;/p&gt;
-&lt;p&gt;It is pretty common knowledge that the best way to get broke is to use &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format"&gt;floats&lt;/a&gt; for storing money. Indeed, not all rational numbers can be represented as floating-point numbers:&lt;/p&gt;
+&lt;p&gt;It's pretty common knowledge that the best way to go broke is to use &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format"&gt;floats&lt;/a&gt; for storing money. Indeed, not all rational numbers can be represented as floating-point numbers:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"%1.10f&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;0.7f&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// 0.6999999881&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Floats use a sign, exponent, and significand (mantissa) to represent real numbers. These gaps exist because floating-point numbers have &lt;strong&gt;fixed precision&lt;/strong&gt; but &lt;strong&gt;variable scale&lt;/strong&gt;:&lt;/p&gt;
@@ -34,16 +34,16 @@ value = (-1)^{sign} \cdot 2^{expontent - 127} \cdot (1 + fraction)
 &lt;ul class="simple"&gt;
 &lt;li&gt;1 bit for the sign&lt;/li&gt;
 &lt;li&gt;8 bits for the exponent&lt;/li&gt;
-&lt;li&gt;23 bits for the significand (with implicit leading bit, giving 24 bits of precision)&lt;/li&gt;
+&lt;li&gt;23 bits for the significand (with an implicit leading bit, giving 24 bits of precision)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Because the fraction has only 23 explicit bits, it can only store 24-bit precision at any given scale. This means that numbers are spaced uniformly within a power of two, but the step size doubles every time the exponent increases. Therefore, floating-point numbers not only have gaps, but also the gaps distribution is not uniform. The farther away from 0.0 the larger empty spaces we can expect.&lt;/p&gt;
-&lt;p&gt;Lets look at the numbers from the first code sample:&lt;/p&gt;
+&lt;p&gt;Because the fraction has only 23 explicit bits, it can only store 24-bit precision at any given scale. This means that numbers are spaced uniformly within a power of two, but the step size doubles every time the exponent increases. Therefore, floating-point numbers not only have gaps, but the distribution of these gaps is also not uniform. The farther away from 0.0, the larger empty spaces we can expect.&lt;/p&gt;
+&lt;p&gt;Let's look at the numbers from the first code sample:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"%20.16f&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;16777217.f&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;// 16777216.0000000000000000&lt;/span&gt;
 &lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"%20.16f&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;16777218.f&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="c1"&gt;// 16777218.0000000000000000&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Between &lt;strong&gt;16,777,216&lt;/strong&gt; and &lt;strong&gt;16,777,218&lt;/strong&gt; there is a pretty large gap.
-If you kept tracking your dollars as floats around 16M there would be gaps as big as &lt;strong&gt;2$&lt;/strong&gt;. At around &lt;strong&gt;140,000,000&lt;/strong&gt; we can find gaps of size &lt;strong&gt;16$&lt;/strong&gt;. At around &lt;strong&gt;1,000,000,000&lt;/strong&gt; of size &lt;strong&gt;64$&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;The gap size depends on the exponent. Every time the number doubles the gap size doubles:&lt;/p&gt;
+&lt;p&gt;Between &lt;strong&gt;16,777,216&lt;/strong&gt; and &lt;strong&gt;16,777,218&lt;/strong&gt;, there is a pretty large gap.
+If you kept tracking your dollars as floats around 16 million, there would be gaps as big as &lt;strong&gt;2$&lt;/strong&gt;. At around &lt;strong&gt;140,000,000&lt;/strong&gt; we can find gaps of size &lt;strong&gt;16$&lt;/strong&gt;. At around &lt;strong&gt;1,000,000,000&lt;/strong&gt; of size &lt;strong&gt;64$&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The gap size depends on the exponent. Every time the number doubles, the gap size doubles:&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;for numbers in the range &lt;strong&gt;[1, 2)&lt;/strong&gt;, the gap is 2&lt;sup&gt;-23&lt;/sup&gt; = 0.00000011920928955078125&lt;/li&gt;
 &lt;li&gt;at &lt;strong&gt;8,388,608&lt;/strong&gt;, the gap is &lt;strong&gt;1&lt;/strong&gt;&lt;/li&gt;
@@ -100,7 +100,7 @@ gap = 2^{expontent - 23}
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;You can play with floating-point representation with this nice &lt;a class="reference external" href="https://float.exposed/0x4b800001"&gt;tool&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can play with floating-point representation using this nice &lt;a class="reference external" href="https://float.exposed/0x4b800001"&gt;tool&lt;/a&gt;.&lt;/p&gt;
 &lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",

@@ -8,7 +8,7 @@ Sweet Variant o’ Mine: Rust enums in C++
     :alt: mechanical cameleon
     :class: image-process-article-image
 
-Rust’s enums are a powerful tool for representing data that can take multiple forms, each with its own type and constructor. For example, consider a Message that encapsulates different message types:
+Rust’s enums are a powerful tool for representing data that can take multiple forms, each with its own type and constructor. For example, consider a **Message** that encapsulates different message types:
 
 .. code-block:: Rust
 
@@ -31,7 +31,7 @@ Here, each variant can hold distinct data types, from no data (**Quit**) to comp
         }
     }
 
-In C++, `std::variant <https://en.cppreference.com/w/cpp/utility/variant>`_ (since C++17) can mimic this behavior—but not without some boilerplate. First, define individual types for each variant:
+In C++, `std::variant <https://en.cppreference.com/w/cpp/utility/variant>`_ (since C++17) can mimic this behavior — but not without some boilerplate. First, define individual types for each variant:
 
 .. code-block:: C++
 
@@ -42,7 +42,7 @@ In C++, `std::variant <https://en.cppreference.com/w/cpp/utility/variant>`_ (sin
 
     using Message = std::variant<Quit, Move, Write, ChangeColor>;
 
-Handling the variant requires a visitor, often using `std::visit <https://en.cppreference.com/w/cpp/utility/variant/visit>`_ and a helper overloaded to combine lambdas:
+Handling the variant requires a visitor - often using `std::visit <https://en.cppreference.com/w/cpp/utility/variant/visit>`_ and a helper overloaded to combine lambdas:
 
 .. code-block:: C++
 

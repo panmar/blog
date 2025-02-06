@@ -9,7 +9,7 @@ Trust the Source, Luke
     :alt: Yoda
     :align: center
 
-It is a common belief that the only documentation a programmer should rely on is the source code. Some experienced engineers argue that one should only trust in the disassembly. However, I'd like to present a case where neither of these beliefs holds true.
+It is a common belief that the only documentation a programmer should rely on is the source code. Some experienced engineers argue that one should only trust the disassembly. However, I'd like to present a case where neither of these beliefs holds true.
 
 Consider this kernel code:
 
@@ -42,13 +42,13 @@ Consider this kernel code:
 
 
 
-Could we obtain the value of the :code:`secret[index]` for indices outside of :code:`public_bounds`, if we have only access to :code:`index`, :code:`detector[]` and the value of :code:`SOME_BIG_NUMBER`? According to the source code and disassembly we should not, right?
+Could we obtain the value of the :code:`secret[index]` for indices outside of :code:`public_bounds`, if we only have access to :code:`index`, :code:`detector[]` and the value of :code:`SOME_BIG_NUMBER`? According to the source code and disassembly we should not, right?
 
 Right?
 
-Welcome to hardware land! CPU hates idleness. If there is a cache miss in the branch condition :code:`index < public_bounds`, which would make CPU stall for a while, CPU can calculate :code:`x = x ^ detector[secret[index] * ...]` doing `speculative execution <https://en.wikipedia.org/wiki/Speculative_execution>`_. If the condition, fetched from memory, turns out to be false, the CPU simply doesn't commit the speculative result. So, what's the issue? The problem arises because the CPU can fetch :code:`detector[secret[index] * ...]` into cache, even if the branch condition is **not** met!
+Welcome to hardware land! The CPU hates idleness. If there is a cache miss in the branch condition :code:`index < public_bounds`, which would make CPU stall for a while, CPU can `speculatively execute <https://en.wikipedia.org/wiki/Speculative_execution>`_ :code:`x = x ^ detector[secret[index] * ...]`. If the condition, fetched from memory, turns out to be false, the CPU simply doesn't commit the speculative result. So, what's the issue? The problem arises because the CPU can fetch :code:`detector[secret[index] * ...]` into the cache, even if the branch condition is **not** met!
 
-So, in the user process, we could've evicted whole cache, executed :code:`kernel_func` making CPU do branch prediction (by running it with a valid :code:`index` a few times beforehand), and then executed:
+In the user process, we could have evicted the entire cache, executed :code:`kernel_func` making CPU do branch prediction (by running it with a valid :code:`index` a few times beforehand), and then executed:
 
 .. code-block:: c++
 
@@ -59,6 +59,6 @@ So, in the user process, we could've evicted whole cache, executed :code:`kernel
 
 In this manner, we could have determined if :code:`secret[index]` was 'A' simply by measuring the time difference (a small time indicates it was fetched into the cache by *speculative execution*). We could repeat the entire process for 'B', 'C', 'D', etc., and voilà!
 
-This vulnerability, called `Spectre/Meltdown <https://meltdownattack.com>`_, has been described in more detail in `"Reading privilaged memory with a side-channel" <https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html>`_ by Jann Horn.
+This vulnerability, called `Spectre/Meltdown <https://meltdownattack.com>`_, has been described in more detail in `"Reading privileged memory with a side-channel" <https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html>`_ by Jann Horn.
 
 Be careful where you place your trust.
