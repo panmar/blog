@@ -40,25 +40,32 @@
 </header>
 <img alt="mechnical snail" class="image-process-article-image" src="images/derivatives/article-image/snail.jpg"/>
 <p>As I type these words, I'm staring at the LLVM compilation screen. It has been running for an hour. What a waste of energy. I really hate long compilation times.</p>
-<p>That's why I started using <a class="reference external" href="https://en.wikipedia.org/wiki/Unity_build">unity builds</a>. A unity build consolidates all code into a single translation unit. How much time can I save by organizing code in this manner? I wrote <a class="reference external" href="https://github.com/panmar/unity-builds-cmp/">a simple test</a> where I generated 10,000 files:</p>
-<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;memory&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;map&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;set&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;chrono&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;functional&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;random&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fstream&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;thread&gt;</span>
+<p>That's why I started using <a class="reference external" href="https://en.wikipedia.org/wiki/Unity_build">unity builds</a>. A unity build consolidates all code into a single translation unit:</p>
+<div class="highlight"><pre><span></span><span class="cpp-cp">#include</span><span class="cpp-w"> </span><span class="cpp-cpf">"file_1.cc"</span>
+<span class="cpp-cp">#include</span><span class="cpp-w"> </span><span class="cpp-cpf">"file_2.cc"</span>
+<span class="cpp-cp">#include</span><span class="cpp-w"> </span><span class="cpp-cpf">"file_3.cc"</span>
+<span class="cpp-cp">#include</span><span class="cpp-w"> </span><span class="cpp-cpf">"file_4.cc"</span>
+<span class="cpp-cp">#include</span><span class="cpp-w"> </span><span class="cpp-cpf">"file_5.cc"</span>
+</pre></div>
+<p>How much time can I save by organizing code in this manner? I wrote <a class="reference external" href="https://github.com/panmar/unity-builds-cmp/">a simple test</a> where I generated 10,000 files:</p>
+<div class="highlight"><pre><span></span><span class="cpp-cp">#include</span><span class="cpp-w"> </span><span class="cpp-cpf">&lt;iostream&gt;</span>
+<span class="cpp-cp">#include</span><span class="cpp-w"> </span><span class="cpp-cpf">&lt;string&gt;</span>
+<span class="cpp-cp">#include</span><span class="cpp-w"> </span><span class="cpp-cpf">&lt;vector&gt;</span>
+<span class="cpp-cp">#include</span><span class="cpp-w"> </span><span class="cpp-cpf">&lt;memory&gt;</span>
+<span class="cpp-cp">#include</span><span class="cpp-w"> </span><span class="cpp-cpf">&lt;map&gt;</span>
+<span class="cpp-cp">#include</span><span class="cpp-w"> </span><span class="cpp-cpf">&lt;set&gt;</span>
+<span class="cpp-cp">#include</span><span class="cpp-w"> </span><span class="cpp-cpf">&lt;chrono&gt;</span>
+<span class="cpp-cp">#include</span><span class="cpp-w"> </span><span class="cpp-cpf">&lt;functional&gt;</span>
+<span class="cpp-cp">#include</span><span class="cpp-w"> </span><span class="cpp-cpf">&lt;random&gt;</span>
+<span class="cpp-cp">#include</span><span class="cpp-w"> </span><span class="cpp-cpf">&lt;fstream&gt;</span>
+<span class="cpp-cp">#include</span><span class="cpp-w"> </span><span class="cpp-cpf">&lt;thread&gt;</span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">MyTestClazzX</span><span class="w"> </span><span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">func</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Hello from class "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">MyTestClassX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">": "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">};</span>
+<span class="cpp-k">class</span><span class="cpp-w"> </span><span class="cpp-nc">MyTestClazzX</span><span class="cpp-w"> </span><span class="cpp-p">{</span>
+<span class="cpp-k">public</span><span class="cpp-o">:</span>
+<span class="cpp-w">    </span><span class="cpp-kt">void</span><span class="cpp-w"> </span><span class="cpp-n">func</span><span class="cpp-p">(</span><span class="cpp-k">const</span><span class="cpp-w"> </span><span class="cpp-n">std</span><span class="cpp-o">::</span><span class="cpp-n">string</span><span class="cpp-o">&amp;</span><span class="cpp-w"> </span><span class="cpp-n">str</span><span class="cpp-p">)</span><span class="cpp-w"> </span><span class="cpp-p">{</span>
+<span class="cpp-w">        </span><span class="cpp-n">std</span><span class="cpp-o">::</span><span class="cpp-n">cout</span><span class="cpp-w"> </span><span class="cpp-o">&lt;&lt;</span><span class="cpp-w"> </span><span class="cpp-s">"Hello from class "</span><span class="cpp-w"> </span><span class="cpp-o">+</span><span class="cpp-w"> </span><span class="cpp-n">MyTestClassX</span><span class="cpp-w"> </span><span class="cpp-o">+</span><span class="cpp-w"> </span><span class="cpp-s">": "</span><span class="cpp-w"> </span><span class="cpp-o">+</span><span class="cpp-w"> </span><span class="cpp-n">str</span><span class="cpp-w"> </span><span class="cpp-o">&lt;&lt;</span><span class="cpp-w"> </span><span class="cpp-n">std</span><span class="cpp-o">::</span><span class="cpp-n">endl</span><span class="cpp-p">;</span>
+<span class="cpp-w">    </span><span class="cpp-p">}</span>
+<span class="cpp-p">};</span>
 </pre></div>
 <p>Then I performed different compilations using normal and unity builds. Here are the results:</p>
 <div class="highlight"><pre><span></span>➜<span class="w">  </span>unity-builds-cmp<span class="w"> </span>git:<span class="o">(</span>main<span class="o">)</span><span class="w"> </span>✗<span class="w"> </span>python<span class="w"> </span>test_unity_build.py<span class="w"> </span><span class="m">10000</span>
@@ -86,6 +93,11 @@ Compiling<span class="w"> </span>normal<span class="w"> </span>build<span class=
 <p>About 13 times faster. This is noticeable and definitely worthwhile for me. It compiles under one second without using precomiled headers, incremental builds or <a class="reference external" href="https://en.cppreference.com/w/cpp/language/pimpl">pimpl</a>. A full rebuild. Each time. In under one second.</p>
 <p>So, what about cons? Certainly, putting everything into a single translation unit can result in a big mess:</p>
 <ul>
+<li><p class="first">Static clash</p>
+<blockquote>
+<p>Symbols with identical names and internal linkage can result in lots of <em>redefinition</em> errors.</p>
+</blockquote>
+</li>
 <li><p class="first">Macro mayhem</p>
 <blockquote>
 <p>Preprocessor directive now operate in a global battlefield. That innocuous <code>#define MAX_SIZE 1024</code> in a source header? It might silently override a same-named constant in an unrelated subsystem.</p>
@@ -96,18 +108,48 @@ Compiling<span class="w"> </span>normal<span class="w"> </span>build<span class=
 <p>Technically, you can use <a class="reference external" href="https://en.cppreference.com/w/cpp/language/namespace#Unnamed_namespaces">unnamed namespace</a>, but everything will be put inside single one. You want to use a helper function that should only be visible in this small module? Too bad. It will be visible globally.</p>
 </blockquote>
 </li>
+<li><p class="first">Ambiguous overloads</p>
+<blockquote>
+<p>The C++ <a class="reference external" href="https://en.cppreference.com/w/cpp/language/overload_resolution">overload resolution</a> rules are quite complex and when everything is in one translation unit, it can lead to some suprises, e.g.:</p>
+<div class="highlight"><pre><span></span><span class="cpp-c1">// file_1.cc</span>
+<span class="cpp-k">struct</span><span class="cpp-w"> </span><span class="cpp-nc">Foo</span><span class="cpp-w"> </span><span class="cpp-p">{</span>
+<span class="cpp-w">    </span><span class="cpp-n">Foo</span><span class="cpp-p">(</span><span class="cpp-kt">int</span><span class="cpp-w"> </span><span class="cpp-n">var</span><span class="cpp-p">)</span><span class="cpp-w"> </span><span class="cpp-p">{}</span>
+<span class="cpp-p">};</span>
+
+<span class="cpp-kt">void</span><span class="cpp-w"> </span><span class="cpp-nf">func</span><span class="cpp-p">(</span><span class="cpp-n">Foo</span><span class="cpp-w"> </span><span class="cpp-n">f</span><span class="cpp-p">)</span><span class="cpp-w"> </span><span class="cpp-p">{}</span>
+
+<span class="cpp-c1">// file_2.cc</span>
+<span class="cpp-k">struct</span><span class="cpp-w"> </span><span class="cpp-nc">Bar</span><span class="cpp-w"> </span><span class="cpp-p">{</span>
+<span class="cpp-w">    </span><span class="cpp-n">Bar</span><span class="cpp-p">(</span><span class="cpp-kt">int</span><span class="cpp-w"> </span><span class="cpp-n">var</span><span class="cpp-p">)</span><span class="cpp-w"> </span><span class="cpp-p">{}</span>
+<span class="cpp-p">};</span>
+
+<span class="cpp-kt">void</span><span class="cpp-w"> </span><span class="cpp-nf">func</span><span class="cpp-p">(</span><span class="cpp-n">Bar</span><span class="cpp-w"> </span><span class="cpp-n">b</span><span class="cpp-p">)</span><span class="cpp-w"> </span><span class="cpp-p">{}</span>
+
+<span class="cpp-c1">// main.cc</span>
+<span class="cpp-cp">#include</span><span class="cpp-w"> </span><span class="cpp-cpf">"file_1.cc"</span>
+<span class="cpp-cp">#include</span><span class="cpp-w"> </span><span class="cpp-cpf">"file_2.cc"</span>
+
+<span class="cpp-n">func</span><span class="cpp-p">(</span><span class="cpp-mi">42</span><span class="cpp-p">);</span>
+</pre></div>
+<p>Results in <code>error: call to 'func' is ambiguous</code>.</p>
+</blockquote>
+</li>
 <li><p class="first">External dependencies</p>
 <blockquote>
-<p>You can design all of your code in <em>unity-friendly</em> manner and it might still explode when you include some <em>external library</em>.</p>
+<p>Due to <em>leaky</em> C++ nature, you can design all of your code in <em>unity-friendly</em> manner and it might still explode when you include some <em>external library</em>.</p>
 </blockquote>
 </li>
 </ul>
 <p>How do I deal with it?</p>
-<p>Well, I do not use macros. And if I did, I would prefix them with a module-specific indentifier. Moreover, I organize my codebase into modules with its own namespaces and try not to break dependency rules. As far as external libraries are concerned, I usually put them into separate DLLs and hope headers are written properly. Alternatively, for a small project, you might try including it directly. You never know.</p>
-<p>You can learn more about unity builds from <a class="reference external" href="https://onqtam.com/programming/2018-07-07-unity-builds/">Viktor Kirilov</a>.</p>
+<p>Well, I am using it for my own projects written from scratch. It is easier to write code for <em>unity builds</em> from the beginning then to transform big, complex code base into it. My ruleset:</p>
+<ul class="simple">
+<li>I organize my codebase into modules with its own namespaces and try not to break dependency rules</li>
+<li>I rarely use macros. And if I do, I prefix them with a module-specific identifier.</li>
+<li>As far as external libraries are concerned, I usually put them into separate DLLs and hope headers are written properly. Alternatively, for a small project, you might try including it directly. You never know.</li>
+</ul>
 <hr class="before-footer"/>
 <footer>
-                Generated from <a href="https://github.com/panmar/blog/commit/69cd9c7">commit 69cd9c7</a> on <nobr>2025-02-06 19:41:59+01:00</nobr>.
+                Generated from <a href="https://github.com/panmar/blog/commit/6dd670a">commit 6dd670a</a> on <nobr>2025-02-11 10:40:19+01:00</nobr>.
                 Content licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>.
             </footer>
 </div>

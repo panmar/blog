@@ -53,7 +53,7 @@
 
 <span class="k">while</span> <span class="n">all_features</span> <span class="ow">and</span> <span class="n">memes</span><span class="p">:</span>
     <span class="n">f</span> <span class="o">=</span> <span class="n">pick_random_feature</span><span class="p">(</span><span class="n">all_features</span><span class="p">)</span>
-    <span class="n">similar_mems</span> <span class="o">=</span> <span class="n">mems</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">similar_mems</span> <span class="o">=</span> <span class="n">find_all</span><span class="p">(</span><span class="n">mems</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
     <span class="n">mark_similar_mems</span><span class="p">(</span><span class="n">similar_mems</span><span class="p">)</span>
     <span class="n">mems</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">similar_mems</span><span class="p">)</span>
     <span class="n">all_features</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
@@ -66,7 +66,7 @@
 <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">all_features</span><span class="p">:</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">mems</span><span class="p">:</span>
         <span class="k">break</span>
-    <span class="n">similar_mems</span> <span class="o">=</span> <span class="n">mems</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">similar_mems</span> <span class="o">=</span> <span class="n">find_all</span><span class="p">(</span><span class="n">mems</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
     <span class="n">mark_similar_mems</span><span class="p">(</span><span class="n">similar_mems</span><span class="p">)</span>
     <span class="n">mems</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">similar_mems</span><span class="p">)</span>
 </pre></div>
@@ -84,7 +84,7 @@
 <p>The algorithm I’ve just described is called <a class="reference external" href="https://en.wikipedia.org/wiki/MinHash">MinHash</a>, and it’s a powerful technique for grouping similar sets of items efficiently.</p>
 <hr class="before-footer"/>
 <footer>
-                Generated from <a href="https://github.com/panmar/blog/commit/69cd9c7">commit 69cd9c7</a> on <nobr>2025-02-06 19:41:59+01:00</nobr>.
+                Generated from <a href="https://github.com/panmar/blog/commit/6dd670a">commit 6dd670a</a> on <nobr>2025-02-11 10:40:19+01:00</nobr>.
                 Content licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>.
             </footer>
 </div>

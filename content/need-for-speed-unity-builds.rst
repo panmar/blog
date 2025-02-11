@@ -11,9 +11,21 @@ Need for speed: C++ unity builds
 
 As I type these words, I'm staring at the LLVM compilation screen. It has been running for an hour. What a waste of energy. I really hate long compilation times.
 
-That's why I started using `unity builds <https://en.wikipedia.org/wiki/Unity_build>`_. A unity build consolidates all code into a single translation unit. How much time can I save by organizing code in this manner? I wrote `a simple test <https://github.com/panmar/unity-builds-cmp/>`_ where I generated 10,000 files:
+That's why I started using `unity builds <https://en.wikipedia.org/wiki/Unity_build>`_. A unity build consolidates all code into a single translation unit:
 
 .. code-block:: C++
+    :classprefix: cpp-
+
+    #include "file_1.cc"
+    #include "file_2.cc"
+    #include "file_3.cc"
+    #include "file_4.cc"
+    #include "file_5.cc"
+
+How much time can I save by organizing code in this manner? I wrote `a simple test <https://github.com/panmar/unity-builds-cmp/>`_ where I generated 10,000 files:
+
+.. code-block:: C++
+    :classprefix: cpp-
 
     #include <iostream>
     #include <string>
@@ -68,6 +80,10 @@ About 13 times faster. This is noticeable and definitely worthwhile for me. It c
 
 So, what about cons? Certainly, putting everything into a single translation unit can result in a big mess:
 
+* Static clash
+
+    Symbols with identical names and internal linkage can result in lots of *redefinition* errors.
+
 * Macro mayhem
 
     Preprocessor directive now operate in a global battlefield. That innocuous :code:`#define MAX_SIZE 1024` in a source header? It might silently override a same-named constant in an unrelated subsystem.
@@ -76,12 +92,43 @@ So, what about cons? Certainly, putting everything into a single translation uni
 
     Technically, you can use `unnamed namespace <https://en.cppreference.com/w/cpp/language/namespace#Unnamed_namespaces>`_, but everything will be put inside single one. You want to use a helper function that should only be visible in this small module? Too bad. It will be visible globally.
 
+* Ambiguous overloads
+
+    The C++ `overload resolution <https://en.cppreference.com/w/cpp/language/overload_resolution>`_ rules are quite complex and when everything is in one translation unit, it can lead to some suprises, e.g.:
+
+    .. code-block:: c++
+        :classprefix: cpp-
+
+        // file_1.cc
+        struct Foo {
+            Foo(int var) {}
+        };
+
+        void func(Foo f) {}
+
+        // file_2.cc
+        struct Bar {
+            Bar(int var) {}
+        };
+
+        void func(Bar b) {}
+
+        // main.cc
+        #include "file_1.cc"
+        #include "file_2.cc"
+
+        func(42);
+    
+    Results in :code:`error: call to 'func' is ambiguous`.
+
 * External dependencies
 
-    You can design all of your code in *unity-friendly* manner and it might still explode when you include some *external library*.
+    Due to *leaky* C++ nature, you can design all of your code in *unity-friendly* manner and it might still explode when you include some *external library*.
 
 How do I deal with it?
 
-Well, I do not use macros. And if I did, I would prefix them with a module-specific indentifier. Moreover, I organize my codebase into modules with its own namespaces and try not to break dependency rules. As far as external libraries are concerned, I usually put them into separate DLLs and hope headers are written properly. Alternatively, for a small project, you might try including it directly. You never know.
+Well, I am using it for my own projects written from scratch. It is easier to write code for *unity builds* from the beginning then to transform big, complex code base into it. My ruleset:
 
-You can learn more about unity builds from `Viktor Kirilov <https://onqtam.com/programming/2018-07-07-unity-builds/>`_.
+* I organize my codebase into modules with its own namespaces and try not to break dependency rules
+* I rarely use macros. And if I do, I prefix them with a module-specific identifier.
+* As far as external libraries are concerned, I usually put them into separate DLLs and hope headers are written properly. Alternatively, for a small project, you might try including it directly. You never know.

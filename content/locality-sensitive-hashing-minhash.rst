@@ -29,7 +29,7 @@ Lets think about it. If two memes share most of thier features, then picking a r
 
     while all_features and memes:
         f = pick_random_feature(all_features)
-        similar_mems = mems.find_all(f)
+        similar_mems = find_all(mems, f)
         mark_similar_mems(similar_mems)
         mems.remove(similar_mems)
         all_features.remove(f)
@@ -45,7 +45,7 @@ Notice that when we actually pick a random feature, remove it from **all_feature
     for f in all_features:
         if not mems:
             break
-        similar_mems = mems.find_all(f)
+        similar_mems = find_all(mems, f)
         mark_similar_mems(similar_mems)
         mems.remove(similar_mems)
 
